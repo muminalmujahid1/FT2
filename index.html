@@ -4,9 +4,468 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Gear | Premium Gadget Store</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0f172a; 
+            --accent-color: #ff4757;  
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 18px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent-color);
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 8px 35px 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #cbd5e1;
+            outline: none;
+            font-size: 14px;
+            width: 180px;
+            transition: 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-color);
+            width: 220px;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 12px;
+            color: #94a3b8;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            padding: 60px 20px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .badge {
+            background: #ffe2e5;
+            color: var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e293b;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        .categories-section, .products-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .category-card i {
+            font-size: 36px;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        .category-card h3 {
+            font-size: 16px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .img-container {
+            position: relative;
+            background: #f8fafc;
+        }
+
+        .discount-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 6px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .p-category {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            font-weight: 700;
+        }
+
+        .product-info h3 {
+            font-size: 17px;
+            color: var(--primary-color);
+            margin: 5px 0 10px;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            margin-top: auto;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .old-price {
+            font-size: 13px;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        .add-to-cart-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            transition: 0.3s right ease-in-out;
+            z-index: 101;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .close-btn {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,14 +481,9 @@
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="#products">Shop</a></li>
                     <li><a href="#categories">Categories</a></li>
-                    <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
             <div class="nav-icons">
-                <div class="search-box">
-                    <input type="text" placeholder="Search accessories...">
-                    <i class="fas fa-search"></i>
-                </div>
                 <div class="cart-icon" onclick="toggleCart()">
                     <i class="fas fa-shopping-bag"></i>
                     <span id="cart-count">0</span>
@@ -45,8 +499,7 @@
                 <h1>Upgrade Your Phone <br>With Premium Gear</h1>
                 <p>আপনার স্মার্টফোনের সুরক্ষায় ও হাই-স্পিড পারফরমেন্সে আসল এবং ব্র্যান্ডেড অ্যাক্সেসরিজ কিনুন আকর্ষণীয় ডিসকাউন্টে।</p>
                 <div class="hero-buttons">
-                    <a href="#products" class="btn btn-primary">Explore Shop <i class="fas fa-arrow-right"></i></a>
-                    <a href="#categories" class="btn btn-secondary">View Categories</a>
+                    <a href="#products" class="btn btn-primary">Explore Shop</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -95,9 +548,6 @@
                 <div class="product-info">
                     <span class="p-category">Audio</span>
                     <h3>Anker Soundcore Earbuds</h3>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
-                    </div>
                     <div class="price-box">
                         <span class="price">৳১,৫০০</span>
                         <span class="old-price">৳২,০০০</span>
@@ -114,9 +564,6 @@
                 <div class="product-info">
                     <span class="p-category">Protection</span>
                     <h3>Premium Silicone Case</h3>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
-                    </div>
                     <div class="price-box">
                         <span class="price">৳৪৫০</span>
                     </div>
@@ -132,9 +579,6 @@
                 <div class="product-info">
                     <span class="p-category">Charger</span>
                     <h3>Baseus 20W Fast Charger</h3>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                    </div>
                     <div class="price-box">
                         <span class="price">৳৮৫০</span>
                         <span class="old-price">৳১,০০০</span>
@@ -151,9 +595,6 @@
                 <div class="product-info">
                     <span class="p-category">Power</span>
                     <h3>10000mAh Power Bank</h3>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.3)
-                    </div>
                     <div class="price-box">
                         <span class="price">৳১,৮০০</span>
                     </div>
@@ -166,15 +607,15 @@
 
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
-            <h3>Shopping Bag (<span id="cart-side-count">0</span>)</h3>
+            <h3>Shopping Bag</h3>
             <span class="close-btn" onclick="toggleCart()">&times;</span>
         </div>
         <div id="cart-items" class="cart-items">
-            <p class="empty-msg">Your cart is empty</p>
+            <p style="text-align:center; color:#aaa; margin-top:40px;">Your cart is empty</p>
         </div>
         <div class="cart-footer">
             <div class="total">
-                <span>Subtotal:</span>
+                <span>Total:</span>
                 <span>৳<span id="cart-total">0</span></span>
             </div>
             <button class="checkout-btn" onclick="checkout()">Proceed To Checkout</button>
@@ -182,25 +623,74 @@
     </div>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-about">
-                <h3>Mobile<span>Gear</span></h3>
-                <p>সেরা মানের মোবাইল গ্যাজেট ও অ্যাক্সেসরিজের নির্ভরযোগ্য অনলাইন শপ।</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Support Chat</a></li>
-                </ul>
-            </div>
-        </div>
+        <h3>Mobile<span>Gear</span></h3>
+        <p>সেরা মানের মোবাইল গ্যাজেট ও অ্যাক্সেসরিজের নির্ভরযোগ্য অনলাইন শপ।</p>
         <div class="footer-bottom">
-            <p>&copy; 2026 MobileGear. Made with ❤️ for Premium Users.</p>
+            <p>&copy; 2026 MobileGear. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('active');
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const cartTotal = document.getElementById('cart-total');
+            
+            let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.innerText = totalCount;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:#aaa; margin-top:40px;">Your cart is empty</p>';
+                cartTotal.innerText = '0';
+                return;
+            }
+            
+            let totalPrice = 0;
+            cart.forEach(item => {
+                totalPrice += item.price * item.quantity;
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <div>
+                        <h4 style="font-size:14px; color:#0f172a;">${item.name}</h4>
+                        <small style="color:#64748b;">৳${item.price} x ${item.quantity}</small>
+                    </div>
+                    <strong style="color:#ff4757;">৳${item.price * item.quantity}</strong>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+            });
+            
+            cartTotal.innerText = totalPrice;
+        }
+
+        function checkout() {
+            if(cart.length === 0) {
+                alert("আপনার কার্টটি খালি!");
+            } else {
+                alert("ধন্যবাদ! আপনার অর্ডারটি সফলভাবে নেওয়া হয়েছে।");
+                cart = [];
+                updateCartUI();
+                toggleCart();
+            }
+        }
+    </script>
 </body>
 </html>
