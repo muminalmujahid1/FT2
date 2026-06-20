@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Gear | Premium Gadget Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <p>🎉 ফ্রি ডেলিভারি পেতে ১,৯৯৯ ৳ বা তার বেশি অর্ডার করুন! 🎉</p>
+    </div>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">Mobile<span>Gear</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <div class="search-box">
+                    <input type="text" placeholder="Search accessories...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="badge">Trending Gadgets 2026</span>
+                <h1>Upgrade Your Phone <br>With Premium Gear</h1>
+                <p>আপনার স্মার্টফোনের সুরক্ষায় ও হাই-স্পিড পারফরমেন্সে আসল এবং ব্র্যান্ডেড অ্যাক্সেসরিজ কিনুন আকর্ষণীয় ডিসকাউন্টে।</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Explore Shop <i class="fas fa-arrow-right"></i></a>
+                    <a href="#categories" class="btn btn-secondary">View Categories</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=600" alt="Premium Earbuds">
+            </div>
+        </div>
+    </section>
+
+    <section id="categories" class="categories-section">
+        <div class="section-title">
+            <h2>Shop By Category</h2>
+            <p>সহজেই খুঁজে নিন আপনার পছন্দের গ্যাজেট</p>
+        </div>
+        <div class="category-grid">
+            <div class="category-card">
+                <i class="fas fa-headphones-alt"></i>
+                <h3>Audio Gear</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Premium Cases</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast Chargers</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-battery-full"></i>
+                <h3>Power Banks</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products-section">
+        <div class="section-title">
+            <h2>Featured Products</h2>
+            <p>আমাদের বেস্ট সেলিং এবং প্রিমিয়াম কালেকশন</p>
+        </div>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <div class="img-container">
+                    <span class="discount-tag">-25%</span>
+                    <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=500" alt="Wireless Earbuds">
+                </div>
+                <div class="product-info">
+                    <span class="p-category">Audio</span>
+                    <h3>Anker Soundcore Earbuds</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)
+                    </div>
+                    <div class="price-box">
+                        <span class="price">৳১,৫০০</span>
+                        <span class="old-price">৳২,০০০</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Anker Soundcore Earbuds', 1500)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <span class="discount-tag">Hot</span>
+                    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500" alt="Phone Case">
+                </div>
+                <div class="product-info">
+                    <span class="p-category">Protection</span>
+                    <h3>Premium Silicone Case</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
+                    </div>
+                    <div class="price-box">
+                        <span class="price">৳৪৫০</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Premium Silicone Case', 450)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <span class="discount-tag">-15%</span>
+                    <img src="https://images.unsplash.com/photo-1622445262465-2481c4574875?w=500" alt="Fast Charger">
+                </div>
+                <div class="product-info">
+                    <span class="p-category">Charger</span>
+                    <h3>Baseus 20W Fast Charger</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
+                    </div>
+                    <div class="price-box">
+                        <span class="price">৳৮৫০</span>
+                        <span class="old-price">৳১,০০০</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Baseus 20W Fast Charger', 850)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <span class="discount-tag">New</span>
+                    <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500" alt="Power Bank">
+                </div>
+                <div class="product-info">
+                    <span class="p-category">Power</span>
+                    <h3>10000mAh Power Bank</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.3)
+                    </div>
+                    <div class="price-box">
+                        <span class="price">৳১,৮০০</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('10000mAh Power Bank', 1800)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Bag (<span id="cart-side-count">0</span>)</h3>
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-msg">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span>Subtotal:</span>
+                <span>৳<span id="cart-total">0</span></span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Proceed To Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Mobile<span>Gear</span></h3>
+                <p>সেরা মানের মোবাইল গ্যাজেট ও অ্যাক্সেসরিজের নির্ভরযোগ্য অনলাইন শপ।</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Support Chat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MobileGear. Made with ❤️ for Premium Users.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
