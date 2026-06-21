@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faruk Telecom 2 | Premium Gadget & Accessories Shop</title>
+    <title>Faruk Telecom 2 </title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -28,6 +28,7 @@
         body {
             background-color: var(--light-bg);
             color: var(--text-color);
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Navbar with clear contrast */
@@ -46,72 +47,63 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 10px 20px;
+            gap: 10px;
         }
 
         /* Logo Integration styling */
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
+            min-width: 0; /* Prevents overflow */
         }
 
         .logo img {
-            height: 55px; /* লোগোর সাইজ */
+            height: 45px; /* Mobile standard, adjusted in media query for PC */
             width: auto;
             object-fit: contain;
             border-radius: 8px;
+            flex-shrink: 0;
         }
 
         .logo-text {
-            font-size: 24px;
+            font-size: 18px; /* Mobile first */
             font-weight: 800;
             color: var(--primary-color);
             letter-spacing: -0.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .logo-text span {
             color: #64748b; 
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 700;
-            font-size: 16px;
-            transition: 0.2s;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
+        nav {
+            display: none; /* Hidden on mobile for cleaner look, can be integrated into a menu later if needed */
         }
 
         /* High Visibility Floating Cart Box */
         .nav-icons {
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .cart-box-btn {
             background: var(--primary-color);
             color: white;
-            padding: 12px 22px;
+            padding: 10px 16px;
             border-radius: 30px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             cursor: pointer;
             transition: 0.3s;
             font-weight: 700;
+            font-size: 14px;
             box-shadow: 0 4px 15px rgba(0, 70, 173, 0.3);
         }
 
@@ -123,9 +115,9 @@
         #cart-count {
             background: #ffffff;
             color: var(--primary-color);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 800;
-            padding: 2px 10px;
+            padding: 2px 8px;
             border-radius: 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -133,7 +125,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #e0f2fe 0%, #f1f5f9 100%);
-            padding: 80px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
@@ -143,17 +135,17 @@
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 32px;
             font-weight: 800;
             color: var(--dark-color);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 16px;
             color: #475569;
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 25px;
             line-height: 1.6;
         }
 
@@ -161,8 +153,8 @@
         .about-shop {
             background: white;
             max-width: 1200px;
-            margin: 50px auto;
-            padding: 35px;
+            margin: 30px 15px;
+            padding: 25px;
             border-radius: 16px;
             box-shadow: var(--card-shadow);
             border-left: 6px solid var(--primary-color);
@@ -172,47 +164,61 @@
         .about-shop h2 {
             color: var(--dark-color);
             margin-bottom: 12px;
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 800;
         }
 
         .about-shop p {
             color: #475569;
             line-height: 1.7;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         /* Category Selector & Shop */
         .section-title {
             text-align: center;
-            margin: 60px 0 30px;
+            margin: 40px 15px 25px;
             scroll-margin-top: 100px;
         }
 
         .section-title h2 {
-            font-size: 34px;
+            font-size: 28px;
             color: var(--dark-color);
             font-weight: 800;
         }
 
+        .section-title p {
+            font-size: 15px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
         .category-tabs {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .category-tabs::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for clean mobile look */
         }
 
         .tab-btn {
             background: white;
             color: var(--dark-color);
             border: 2px solid #e2e8f0;
-            padding: 12px 28px;
+            padding: 10px 20px;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             cursor: pointer;
             transition: 0.3s;
+            flex-shrink: 0;
         }
 
         .tab-btn.active, .tab-btn:hover {
@@ -226,18 +232,18 @@
         .products-section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+            gap: 15px;
         }
 
         .product-card {
             background: white;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
             transition: 0.3s;
@@ -250,11 +256,6 @@
             display: none;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 70, 173, 0.15);
-        }
-
         .img-container {
             position: relative;
             background: #f1f5f9;
@@ -262,19 +263,19 @@
 
         .product-card img {
             width: 100%;
-            height: 230px;
+            height: 160px; /* Adjusted for mobile grid */
             object-fit: cover;
         }
 
         .product-info {
-            padding: 22px;
+            padding: 12px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .p-category {
-            font-size: 12px;
+            font-size: 10px;
             text-transform: uppercase;
             color: var(--primary-color);
             font-weight: 800;
@@ -282,22 +283,27 @@
         }
 
         .product-info h3 {
-            font-size: 19px;
+            font-size: 15px;
             color: var(--dark-color);
-            margin: 6px 0 12px;
+            margin: 4px 0 8px;
             font-weight: 700;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 42px; /* Standardizing title height */
         }
 
         .price-box {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 5px;
+            margin-bottom: 12px;
             margin-top: auto;
         }
 
         .price {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 800;
             color: var(--primary-color);
         }
@@ -306,28 +312,24 @@
             background-color: var(--dark-color);
             color: white;
             border: none;
-            padding: 14px;
+            padding: 10px;
             width: 100%;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 13px;
             transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-        }
-
-        .add-to-cart-btn:hover {
-            background-color: var(--primary-color);
+            gap: 6px;
         }
 
         /* Cart Sidebar Modern Design */
         .cart-sidebar {
             position: fixed;
             top: 0;
-            right: -450px;
+            right: -100%; /* Fully hidden on mobile initially */
             width: 100%;
             max-width: 440px;
             height: 100%;
@@ -344,7 +346,7 @@
         }
 
         .cart-header {
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -355,10 +357,11 @@
         .close-btn {
             font-size: 30px;
             cursor: pointer;
+            padding: 5px;
         }
 
         .cart-items {
-            padding: 20px;
+            padding: 15px 20px;
             flex-grow: 1;
             overflow-y: auto;
         }
@@ -377,14 +380,14 @@
             background: #f1f5f9;
             padding: 15px;
             border-radius: 10px;
-            margin-top: 15px;
+            margin-top: 5px;
             border: 1px dashed var(--primary-color);
         }
 
         .order-form-container h4 {
             margin-bottom: 10px;
             color: var(--dark-color);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
         }
 
@@ -414,7 +417,7 @@
         .total {
             display: flex;
             justify-content: space-between;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             margin-bottom: 15px;
             color: var(--dark-color);
@@ -425,8 +428,8 @@
             background: #25D366;
             color: white;
             border: none;
-            padding: 16px;
-            font-size: 17px;
+            padding: 14px;
+            font-size: 16px;
             font-weight: 700;
             border-radius: 10px;
             cursor: pointer;
@@ -438,29 +441,24 @@
             box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
         }
 
-        .checkout-btn:hover {
-            background-color: #128C7E;
-            transform: scale(1.02);
-        }
-
         footer {
             background: var(--dark-color);
             color: white;
-            padding: 60px 20px 30px;
-            margin-top: 100px;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
         .footer-box h3 {
-            font-size: 24px;
-            margin-bottom: 18px;
+            font-size: 20px;
+            margin-bottom: 12px;
             font-weight: 800;
         }
 
@@ -469,7 +467,7 @@
         }
 
         .footer-logo {
-            height: 50px;
+            height: 45px;
             width: auto;
             margin-bottom: 15px;
             border-radius: 6px;
@@ -478,8 +476,8 @@
 
         .footer-box p {
             color: #94a3b8;
-            line-height: 1.7;
-            font-size: 15px;
+            line-height: 1.6;
+            font-size: 14px;
         }
 
         .footer-box ul {
@@ -488,26 +486,120 @@
         }
 
         .footer-box ul li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #94a3b8;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 15px;
+            gap: 10px;
+            font-size: 14px;
         }
 
         .footer-box ul li i {
             color: var(--primary-color);
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            margin-top: 40px;
+            padding-top: 20px;
+            margin-top: 30px;
             border-top: 1px solid #1e293b;
             color: #64748b;
-            font-size: 14px;
+            font-size: 13px;
+        }
+
+        /* ==========================================================
+           Responsive Media Queries for Desktop/Tablet View (PC screens)
+           ========================================================== */
+        @media (min-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .logo img {
+                height: 55px;
+            }
+            .logo-text {
+                font-size: 24px;
+            }
+            nav {
+                display: block;
+            }
+            nav ul {
+                display: flex;
+                list-style: none;
+            }
+            nav ul li {
+                margin: 0 15px;
+            }
+            nav ul li a {
+                text-decoration: none;
+                color: var(--dark-color);
+                font-weight: 700;
+                font-size: 16px;
+                transition: 0.2s;
+            }
+            nav ul li a:hover {
+                color: var(--primary-color);
+            }
+            .cart-box-btn {
+                padding: 12px 22px;
+                font-size: 16px;
+            }
+            .hero {
+                padding: 80px 20px;
+            }
+            .hero h1 {
+                font-size: 48px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            .about-shop {
+                margin: 50px auto;
+                padding: 35px;
+            }
+            .about-shop h2 {
+                font-size: 26px;
+            }
+            .section-title {
+                margin: 60px 0 30px;
+            }
+            .section-title h2 {
+                font-size: 34px;
+            }
+            .category-tabs {
+                justify-content: center;
+                padding: 0;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+                gap: 30px;
+            }
+            .product-card img {
+                height: 230px;
+            }
+            .product-info {
+                padding: 22px;
+            }
+            .product-info h3 {
+                font-size: 19px;
+                height: auto;
+                display: block;
+            }
+            .price {
+                font-size: 22px;
+            }
+            .add-to-cart-btn {
+                padding: 14px;
+                font-size: 15px;
+            }
+            .cart-sidebar {
+                right: -450px;
+            }
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 40px;
+            }
         }
     </style>
 </head>
@@ -539,14 +631,14 @@
     <section class="hero">
         <div class="hero-container">
             <h1>Faruk Telecom 2</h1>
-            <p>আমাদের দোকানে পাবেন ১০০% অরিজিনাল মোবাইল গ্যাজেট ও আকর্ষণীয় সব প্রিমিয়াম অ্যাক্সেসরিজ। নিচের ফর্ম পূরণ করে সরাসরি হোয়াটসঅ্যাপে অর্ডার কনফার্ম করুন।</p>
+            <p>আমাদের দোকানে পাবেন ১০০% অরিজিনাল মোবাইল গ্যাজেট ও আকর্ষণীয় সব অ্যাক্সেসরিজ। নিচের ফর্ম পূরণ করে সরাসরি হোয়াটসঅ্যাপে অর্ডার কনফার্ম করুন।</p>
             <a href="#products" class="tab-btn active" style="text-decoration:none; display:inline-block;">আমাদের পণ্যসমূহ দেখুন</a>
         </div>
     </section>
 
     <section id="about" class="about-shop">
         <h2>আমরা কী কী বিক্রি করি?</h2>
-        <p><strong>Faruk Telecom 2</strong>-এ আমরা অত্যন্ত সুভল ও সাশ্রয়ী মূল্যে উন্নত মানের স্মার্টফোন কেসিং, আল্ট্রা-ফাস্ট চার্জার, প্রিমিয়াম ব্লুটুথ ইয়ারবাডস, হেডফোন, ১০০% জেনুইন পাওয়ার ব্যাংক এবং সব ধরনের প্রয়োজনীয় স্মার্টফোন অ্যাক্সেসরিজ বিক্রি করে থাকি। প্রতিটি পণ্যের গুণগত মান আমরা শতভাগ নিশ্চিত করি।</p>
+        <p><strong>Faruk Telecom 2</strong>-এ আমরা অত্যন্ত সুভল ও সাশ্রয়ী মূল্যে উন্নত মানের স্মার্টফোন কেসিং, ফাস্ট চার্জার, ব্লুটুথ ইয়ারবাডস,পাওয়ার ব্যাংক এবং সব ধরনের প্রয়োজনীয় স্মার্টফোন অ্যাক্সেসরিজ বিক্রি করে থাকি। প্রতিটি পণ্যের গুণগত মান আমরা শতভাগ নিশ্চিত করি。</p>
     </section>
 
     <section id="products" class="products-section">
@@ -556,10 +648,10 @@
         </div>
 
         <div class="category-tabs">
-            <button class="tab-btn active" onclick="filterCategory('all')">সব পণ্য (All)</button>
-            <button class="tab-btn" onclick="filterCategory('audio')">ইয়ারবাডস (Audio)</button>
-            <button class="tab-btn" onclick="filterCategory('cases')">কেসিং (Cases)</button>
-            <button class="tab-btn" onclick="filterCategory('charger')">চার্জার (Chargers)</button>
+            <button class="tab-btn active" onclick="filterCategory('all', event)">সব পণ্য (All)</button>
+            <button class="tab-btn" onclick="filterCategory('audio', event)">ইয়ারবাডস (Audio)</button>
+            <button class="tab-btn" onclick="filterCategory('cases', event)">কেসিং (Cases)</button>
+            <button class="tab-btn" onclick="filterCategory('charger', event)">চার্জার (Chargers)</button>
         </div>
 
         <div class="product-grid" id="product-container">
@@ -660,7 +752,7 @@
             <div class="footer-box">
                 <img src="https://i.postimg.cc/fWpx65M3/Gemini-Generated-Image-vwsr48vwsr48vwsr.png" alt="Faruk Telecom 2 Logo" class="footer-logo">
                 <h3>Faruk Telecom <span>2</span></h3>
-                <p>আপনার স্মার্টফোনের সুরক্ষায় ও সেরা কোয়ালিটির গ্যাজেট আইটেম সহজে ও নিরাপদে পৌঁছে দিতে আমরা বদ্ধপরিকর।</p>
+                <p>আপনার স্মার্টফোনের সুরক্ষায় ও সেরা কোয়ালিটির গ্যাজেট আইটেম সহজে ও নিরাপদে পৌঁছে দিতে আমরা বদ্ধপরিকর।</p>
             </div>
             <div class="footer-box">
                 <h3>যোগাযোগ ও ঠিকানা</h3>
@@ -684,10 +776,10 @@
             document.getElementById('cart-sidebar').classList.toggle('active');
         }
 
-        function filterCategory(category) {
+        function filterCategory(category, e) {
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            e.target.classList.add('active');
 
             const cards = document.querySelectorAll('.product-card');
             cards.forEach(card => {
@@ -737,10 +829,10 @@
                 itemElement.classList.add('cart-item');
                 itemElement.innerHTML = `
                     <div>
-                        <h4 style="font-size:15px; color:#0b132b; font-weight:700;">${item.name}</h4>
+                        <h4 style="font-size:14px; color:#0b132b; font-weight:700;">${item.name}</h4>
                         <small style="color:#64748b;">৳${item.price} x ${item.quantity}</small>
                     </div>
-                    <strong style="color:#0046ad;">৳${item.price * item.quantity}</strong>
+                    <strong style="color:#0046ad; font-size:15px;">৳${item.price * item.quantity}</strong>
                 `;
                 cartItemsContainer.appendChild(itemElement);
             });
@@ -777,7 +869,7 @@
                 totalBill += item.price * item.quantity;
             });
 
-            textMessage += `\n💵 সর্বমোট বিল: ৳${totalBill}\n\nদয়া করে অর্ডারটি দ্রুত কনফার্ম করুন। ধন্যবাদ!`;
+            textMessage += `\n💵 সর্বমোট বিল: ৳${totalBill}\n\nদয়া করে অর্ডারটি দ্রুত কনফার্ম করুন। ধন্যবাদ!`;
             
             let encodedMessage = encodeURIComponent(textMessage);
             let whatsappURL = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodedMessage}`;
